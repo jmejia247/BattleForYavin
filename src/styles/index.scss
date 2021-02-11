@@ -1,0 +1,148 @@
+
+
+body {
+    background-color: rgb(115, 251, 248);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    min-width: 1400px;
+    margin-bottom: 50px;
+    font-family: 'Press Start 2P', cursive;
+
+    a {
+        text-decoration: none;
+        color: rgb(115, 251, 248);
+    }
+
+    h3 {
+        color: yellow;
+    }
+}
+
+.arcade {
+    background-color: black;
+    width: 1290px;
+    height: 1000px;
+    border-left: 30px solid rgb(162, 157, 157);
+    border-right: 30px solid rgb(162, 157, 157);
+    border-bottom: 2px solid rgb(162, 157, 157);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title {
+    background-color: rgb(215, 214, 221);
+    font-family: 'Press Start 2P', cursive;
+    width: 1200px;
+    height: 225px;
+    margin-top: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        color: black;
+        -webkit-text-stroke: 1px yellow;
+        font-size: 40px;
+    }
+}
+
+.arcade-display {
+    width: 1290px;
+    height: 700px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    p {
+        border: 1px solid rgb(215, 214, 221);
+        border-radius: 6px;
+        width: 225px;
+        height: 390px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: yellow;
+        font-family: 'Press Start 2P', cursive;
+    }
+}
+
+#canvas {
+    border: 1px solid rgb(215, 214, 221);
+    width: 800px;
+    height: 400px;
+    border-radius: 10px;
+    background-image: url('/src/images/deathstar.gif');
+}
+
+#x-wing {
+    display: none;
+}
+#tie {
+    display: none;
+}
+#deathstar {
+    display: none;
+}
+
+.coin {
+    background-color: rgb(162, 157, 157);
+    margin-bottom: 50px;
+    width: 150px;
+    height: 200px;
+    border: 1px solid rgb(215, 214, 221);
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.coin-slot {
+    background-color: black;
+    width: 10px;
+    height: 120px;
+    margin-left: 2px;
+    margin-right: 5px;
+}
+
+.coin-button {
+    background-color: violet;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    border-radius: 3px;
+    cursor: pointer;
+    animation: glowing 1300ms infinite;
+}
+
+@keyframes glowing {
+    0% {
+        background-color: rgb(102, 11, 13);
+        box-shadow: 0 0 15px rgb(102, 11, 13);
+    }
+    50% {
+        background-color: rgb(253, 236, 145);
+        box-shadow: 0 0 25px rgb(253, 236, 145);
+    }
+    100% {
+        background-color: rgb(102, 11, 13);
+        box-shadow: 0 0 15px rgb(102, 11, 13);
+    }
+}
