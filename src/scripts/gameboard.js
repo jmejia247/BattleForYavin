@@ -10,20 +10,28 @@ window.addEventListener("load", () => {
   canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
   const GAME_WIDTH = 1435;
-  const GAME_HEIGHT = 790;
+  const GAME_HEIGHT = 700;
 
   // let ship = new Ship(canvas.width, canvas.height);
   let x_wing = document.getElementById("x-wing");
   let tie = document.getElementById('tie');
   let ship = new Ship(GAME_WIDTH, GAME_HEIGHT, x_wing, ctx);
+  const fighter = new TIE(GAME_WIDTH, GAME_HEIGHT, tie);
   const empire = [];
 
-  function spawnEnemies() {
+  // function spawnEnemies() {
+  //   if (empire.length < 10) {
+  //     empire.push(new TIE(GAME_WIDTH, GAME_HEIGHT, tie))
+  //     console.log(empire)
+  //   }
+  // }
+
+
+  setInterval(() => {
     if (empire.length < 10) {
       empire.push(new TIE(GAME_WIDTH, GAME_HEIGHT, tie))
-      console.log(empire)
     }
-  }
+  }, 1000);
 
   new InputHandler(ship);
 
@@ -45,12 +53,20 @@ window.addEventListener("load", () => {
 
 
         empire.forEach(fighter => {
-          fighter.update(dt, ctx)
+          fighter.update(dt, ctx, ship.projectiles);
           if (fighter.position.x < 0) {
             let pos = empire.indexOf(fighter);
-            empire.splice(pos, 1)
+            empire.splice(pos, 1);
           }
         })
+        // for (let i = 0; i < empire.length; i++) {
+        //   const fighter = empire[i];
+        //   fighter.update(dt, ctx);
+        //   if (fighter.position.x < 0) {
+        //     console.log(empire)
+        //     empire.slice(i, 1)
+        //   }
+        // }
 
 
         requestAnimationFrame(gameLoop);

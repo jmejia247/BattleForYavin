@@ -11,8 +11,8 @@ export default class TIE {
     this.maxSpeed = 8;
 
     this.position = {
-        x: this.gameWidth / 2 - 150,
-        y: this.gameHeight / 2,
+        x: this.gameWidth,
+        y: Math.random() * this.gameHeight,
     }
   }
 
@@ -21,14 +21,19 @@ export default class TIE {
   }
 
   draw(ctx) {
-    ctx.drawImage(this.ship, this.position.x, this.position.y, 100, 100);
+    ctx.drawImage(this.ship, this.position.x, this.position.y, 75, 75);
   }
 
-  update(dt, ctx) {
+  update(dt, ctx, projectiles) {
     if (!dt) return;
     this.position.x;
     this.position.y;
     this.draw(ctx);
     this.position.x -= this.maxSpeed;
+
+    projectiles.forEach(projectile => {
+      const dist = Math.hypot(projectile.x - this.position.x, projectile.y - this.position.y);
+      
+    });
   }
 }
