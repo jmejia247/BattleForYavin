@@ -11,7 +11,7 @@ export default class TIE {
     this.maxSpeed = 8;
 
     this.position = {
-        x: this.gameWidth / 2 - 100,
+        x: this.gameWidth / 2 - 150,
         y: this.gameHeight / 2,
     }
   }
