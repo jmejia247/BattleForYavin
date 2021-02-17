@@ -50,7 +50,11 @@ export default class Ship  {
         for (let i = 0; i < this.projectiles.length; i++) {
             // console.log(this.projectiles[i]);
             const projectile = this.projectiles[i];
-            projectile.update(this.ctx);
+            if (projectile.collision === false) {
+                projectile.update(this.ctx);
+            } else {
+                this.projectiles.splice(i, 1);
+            }
             if (projectile.x - projectile.width >= this.gameWidth) {
                 this.projectiles.splice(i, 1);
             }

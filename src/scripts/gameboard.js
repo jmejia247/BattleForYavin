@@ -6,6 +6,14 @@ import InputHandler from "./input";
 window.addEventListener("load", () => {
   const canvas = document.querySelector("#canvas");
   const ctx = canvas.getContext("2d");
+  const splash = document.getElementById('#splash')
+  
+  // function startGame() {
+  //   if (splash.style.display === 'block') {
+  //     splash.style.display = 'none';
+  //     canvas.style.display = 'block';
+  //   }
+  // }
 
   canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
@@ -15,8 +23,9 @@ window.addEventListener("load", () => {
   // let ship = new Ship(canvas.width, canvas.height);
   let x_wing = document.getElementById("x-wing");
   let tie = document.getElementById('tie');
+  let explosion = document.getElementById('explosion');
   let ship = new Ship(GAME_WIDTH, GAME_HEIGHT, x_wing, ctx);
-  const fighter = new TIE(GAME_WIDTH, GAME_HEIGHT, tie);
+  const fighter = new TIE(GAME_WIDTH, GAME_HEIGHT, tie, explosion);
   const empire = [];
 
   // function spawnEnemies() {
@@ -53,7 +62,12 @@ window.addEventListener("load", () => {
 
 
         empire.forEach(fighter => {
-          fighter.update(dt, ctx, ship.projectiles);
+          if (fighter.collision === false) {
+            fighter.update(dt, ctx, ship.projectiles);
+          } else {
+            let pos = empire.indexOf(fighter);
+            empire.splice(pos, 1);
+          }
           if (fighter.position.x < 0) {
             let pos = empire.indexOf(fighter);
             empire.splice(pos, 1);

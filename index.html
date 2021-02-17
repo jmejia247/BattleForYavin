@@ -13,14 +13,23 @@
             background-image: url('src/images/j7nui4mwkr2z.jpg');
         }
     </style>
+
+    <script>
+          function startGame() {
+                if (splash.style.display === 'block') {
+                    splash.style.display = 'none';
+                    canvas.style.display = 'block';
+                }
+            }
+    </script>
 </head>
 
 <body>
     <div class="navbar">
         <section>
-            <a href="">Github</a>
-            <a href="">GitRepo</a>
-            <a href="">LinkedIn</a>
+            <a href="https://github.com/jmejia247">Github</a>
+            <a href="https://github.com/jmejia247/BattleForYavin">GitRepo</a>
+            <a href="https://www.linkedin.com/in/jose-mejia-531907206/">LinkedIn</a>
         </section>
         <h3>Battle For Yavin!</h3>
     </div>
@@ -36,16 +45,32 @@
 
         <section class="arcade-display">
             <p class="lore">Attack! following the command of Red leader, you Red five (luke skywalker), lead the final attempt to destroy the death star before it can obliterate Yavin 4, rush down the trenches at full throttle and save the galaxy from the empires tyranny!</p>
-            <canvas id="canvas"></canvas>
+
+
+            <div id="splash" style="display: block;">
+
+            </div>
+
+
+
+
+
+
+
+
+            <canvas id="canvas" style="display: none;"></canvas>
             <img src="src/images/FotoJet.png" alt="x-wing" id="x-wing">
             <img src="src/images/TIE.png" alt="tie-fighter" id="tie">
+            <img src="src/images/explosion-pixel.png" alt="explosion" id="explosion">
             <script src="./dist/main.js"></script>
-            <p class="arcade-info">Use the AWSD/Arrow keys to move up and down, left and right</p>
+            <p class="arcade-info">Use the AWSD/Arrow keys to move up and down, left and right, spacebar to shoot</p>
+
+
         </section>
 
         <section class="coin">
             <div class="coin-slot"></div>
-            <h3 class="coin-button">.25&#162 Insert Coin to Play</h3>
+            <h3 class="coin-button" onclick="startGame()">.25&#162 Insert Coin to Play</h3>
         </section>
 
     </div>

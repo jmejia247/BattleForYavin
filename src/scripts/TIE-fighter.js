@@ -1,12 +1,14 @@
 import Projectile from "./projectiles";
 
 export default class TIE {
-  constructor(gameWidth, gameHeight, tie_fighter) {
+  constructor(gameWidth, gameHeight, tie_fighter, explosion) {
     this.width = 150;
     this.height = 30;
     this.gameWidth = gameWidth;
     this.gameHeight = gameHeight;
     this.ship = tie_fighter;
+    this.collision = false;
+    this.explosion = explosion;
 
     this.maxSpeed = 8;
 
@@ -28,12 +30,20 @@ export default class TIE {
     if (!dt) return;
     this.position.x;
     this.position.y;
-    this.draw(ctx);
-    this.position.x -= this.maxSpeed;
-
+    // this.draw(ctx);
+    
     projectiles.forEach(projectile => {
       const dist = Math.hypot(projectile.x - this.position.x, projectile.y - this.position.y);
-      
+      if (dist - projectile.height - this.height < 1) {
+        console.log('enemy detected')
+        this.collision = true;
+        projectile.collision  = true;
+      }
     });
+    
+    if (this.collision === false) {
+      this.draw(ctx)
+      this.position.x -= this.maxSpeed;
+    } 
   }
 }

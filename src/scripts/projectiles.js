@@ -3,6 +3,7 @@ export default class Projectile {
         this.x = x;
         this.y = y;
         this.speed = 35;
+        this.collision = false;
 
         this.width = 18;
         this.height = 8;
@@ -19,7 +20,10 @@ export default class Projectile {
     }
 
     update(ctx) {
-        this.draw(ctx);
+
+        if (this.collision === false) {
+            this.draw(ctx);
+        } 
         this.x += this.speed;
     }
 }
