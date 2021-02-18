@@ -1,7 +1,7 @@
 import "./styles/index.scss";
 import * as gameBoard from './scripts/gameboard';
 
-// const splash = document.getElementById("#splash");
+// const splash = document.getElementById("splash");
 // const canvas = document.getElementById('canvas')
 
 // function startGame() {

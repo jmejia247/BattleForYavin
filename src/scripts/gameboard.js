@@ -85,6 +85,20 @@ window.addEventListener("load", () => {
 
         requestAnimationFrame(gameLoop);
   }
+  gameLoop()
 
-  gameLoop();
+
+  let isRunning = false;
+
+  function togglePause() {
+    isRunning = !isRunning;
+
+    if (isRunning) {
+      gameLoop();
+    }
+  }
+
+  if (splash.style.display === 'none') {
+    togglePause();
+  }
 });
