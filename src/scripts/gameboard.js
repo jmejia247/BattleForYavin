@@ -65,7 +65,7 @@ window.addEventListener("load", () => {
     ctx.clearRect(0, 0, 1440, 790);
     ship.update(dt, ctx, empire);
 
-    if (ship.collision === true) {
+    if (ship.collision === true && canvas.style.display === 'block') {
       canvas.style.display = "none";
       gameover.style.display = 'block';
       document.getElementById("score").innerHTML =
