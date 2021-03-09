@@ -44,10 +44,8 @@ window.addEventListener("load", () => {
 
   let isRunning = false;
   function togglePause() {
-    debugger
     isRunning = !isRunning;
     if (isRunning) {
-      debugger
       gameLoop();
     }
   }
@@ -65,11 +63,10 @@ window.addEventListener("load", () => {
     ctx.clearRect(0, 0, 1440, 790);
     ship.update(dt, ctx, empire);
 
-    if (ship.collision === true && canvas.style.display === 'block') {
+    if (ship.collision === true) {
+      document.getElementById("score").innerHTML = "The Empire has won!";
       canvas.style.display = "none";
       gameover.style.display = 'block';
-      document.getElementById("score").innerHTML =
-        "The Empire has won!";
     }
 
     empire.forEach((fighter) => {
@@ -88,18 +85,11 @@ window.addEventListener("load", () => {
 
     requestAnimationFrame(gameLoop);
 
-      if (score >= 15) {
-        canvas.style.display = "none";
-        endgame.style.display = "block";
-        document.getElementById("score").innerHTML = 'The Death Star has been destroyed!';
-      }
+    if (score >= 15) {
+      canvas.style.display = "none";
+      endgame.style.display = "block";
+      document.getElementById("score").innerHTML = 'The Death Star has been destroyed!';
+    }
   }
-  // gameLoop();
-
-  if (splash.style.display === "none") {
-    debugger
-    togglePause();
-  }
-
 
 });
