@@ -35,7 +35,6 @@ export default class TIE {
     projectiles.forEach(projectile => {
       const dist = Math.hypot(projectile.x - this.position.x, projectile.y - this.position.y);
       if (dist - projectile.height - this.height < 1) {
-        console.log('enemy detected')
         this.collision = true;
         projectile.collision  = true;
       }

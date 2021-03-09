@@ -7,6 +7,7 @@ window.addEventListener("load", () => {
   const ctx = canvas.getContext("2d");
   const splash = document.getElementById("splash");
   const endgame = document.getElementById('endgame');
+  const gameover = document.getElementById('gameover');
 
  
   const playButton = document.getElementById('switch');
@@ -62,8 +63,14 @@ window.addEventListener("load", () => {
     document.getElementById("score").innerHTML = `Score: ${score}/15`;
 
     ctx.clearRect(0, 0, 1440, 790);
-    ship.update(dt);
-    ship.draw(ctx);
+    ship.update(dt, ctx, empire);
+
+    if (ship.collision === true) {
+      canvas.style.display = "none";
+      gameover.style.display = 'block';
+      document.getElementById("score").innerHTML =
+        "The Empire has won!";
+    }
 
     empire.forEach((fighter) => {
       if (fighter.collision === false) {
@@ -81,7 +88,7 @@ window.addEventListener("load", () => {
 
     requestAnimationFrame(gameLoop);
 
-      if (score >= 1) {
+      if (score >= 15) {
         canvas.style.display = "none";
         endgame.style.display = "block";
         document.getElementById("score").innerHTML = 'The Death Star has been destroyed!';

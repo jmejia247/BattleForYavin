@@ -11,6 +11,7 @@ export default class Ship  {
         this.projectiles = [];
         this.ctx = ctx;
         this.sound = document.getElementById('projectile-sound')
+        this.collision = false
 
         this.maxSpeed = 35;
         // this.speed = 0;
@@ -63,7 +64,8 @@ export default class Ship  {
         }
     }
 
-    update(dt) {
+    update(dt, ctx, empire) {
+        this.draw(ctx);
         if(!dt) return;
         this.position.x;
         this.position.y;
@@ -72,5 +74,17 @@ export default class Ship  {
         if(this.position.x + this.width > this.gameWidth) this.position.x = this.gameWidth - this.width;
         if(this.position.y < 0) this.position.y = 0;
         if(this.position.y + this.height > this.gameHeight) this.position.y = this.gameHeight - this.height;
+
+
+        empire.forEach(tie => {
+            const dist = Math.hypot(
+              tie.position.x - this.position.x,
+              tie.position.y - this.position.y
+            );
+            if (dist - tie.height - this.height < 1) {
+              this.collision = true;
+            }
+        })
+
     }
 }
