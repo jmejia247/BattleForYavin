@@ -13,18 +13,12 @@
             background-image: url('src/images/j7nui4mwkr2z.jpg');
         }
     </style>
-
-    <script>
-          function startGame() {
-                if (splash.style.display === 'block') {
-                    splash.style.display = 'none';
-                    canvas.style.display = 'block';
-                }
-            }
-    </script>
+    
 </head>
 
 <body>
+    <audio id="projectile-sound" src="src/sounds/Probe-Gun.wav"></audio>
+    <script type="text/javascript" src="./dist/main.js"></script>
     <div class="navbar">
         <section>
             <a href="https://github.com/jmejia247">Github</a>
@@ -40,42 +34,32 @@
             <h1>Battle For Yavin</h1>
         </section>
         <section class="glass">
-            <p class="lore"></p>
+            <p id="score"></p>
         </section>
 
         <section class="arcade-display">
             <p class="lore">Attack! following the command of Red leader, you Red five (luke skywalker), lead the final attempt to destroy the death star before it can obliterate Yavin 4, rush down the trenches at full throttle and save the galaxy from the empires tyranny!</p>
 
-
-            <div id="splash" style="display: block;">
-
-            </div>
-
-
-
-
-
-
-
+            <div id="splash" style="display: block;"></div>
+            <div id="endgame" style="display: none;"></div>
 
             <canvas id="canvas" style="display: none;"></canvas>
             <img src="src/images/FotoJet.png" alt="x-wing" id="x-wing">
             <img src="src/images/TIE.png" alt="tie-fighter" id="tie">
             <img src="src/images/explosion-pixel.png" alt="explosion" id="explosion">
-            <script src="./dist/main.js"></script>
+            
             <p class="arcade-info">Use the AWSD/Arrow keys to move up and down, left and right, spacebar to shoot</p>
-
 
         </section>
 
         <section class="coin">
             <div class="coin-slot"></div>
-            <input type="checkbox" id='switch' onclick="startGame()">
+            <input type="checkbox" id='switch'>
             <label for="switch" class="coin-button">.25&#162 Insert Coin to Play</label>
-            <!-- <h3 class="coin-button" onclick="startGame()">.25&#162 Insert Coin to Play</h3> -->
         </section>
 
     </div>
+    
 </body>
 
 </html>

@@ -10,6 +10,7 @@ export default class Ship  {
         this.canShoot = true;
         this.projectiles = [];
         this.ctx = ctx;
+        this.sound = document.getElementById('projectile-sound')
 
         this.maxSpeed = 35;
         // this.speed = 0;
@@ -52,6 +53,7 @@ export default class Ship  {
             const projectile = this.projectiles[i];
             if (projectile.collision === false) {
                 projectile.update(this.ctx);
+                this.sound.play()
             } else {
                 this.projectiles.splice(i, 1);
             }
