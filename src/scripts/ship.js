@@ -14,7 +14,6 @@ export default class Ship  {
         this.collision = false
 
         this.maxSpeed = 35;
-        // this.speed = 0;
 
         this.position = {
             x: 0,
@@ -36,7 +35,6 @@ export default class Ship  {
     }
 
     shootProjectile() {
-        // debugger
         if (this.canShoot && this.projectiles.length < 10) {
             let projectile = new Projectile(this.position.x, this.position.y);
             this.projectiles.push(projectile);
@@ -46,11 +44,8 @@ export default class Ship  {
 
 
     draw(ctx) {
-        // ctx.fillStyle = '#f00';
-        // ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
         ctx.drawImage(this.ship, this.position.x, this.position.y, 100, 100)
         for (let i = 0; i < this.projectiles.length; i++) {
-            // console.log(this.projectiles[i]);
             const projectile = this.projectiles[i];
             if (projectile.collision === false) {
                 projectile.update(this.ctx);

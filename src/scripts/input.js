@@ -17,7 +17,6 @@ export default class InputHandler {
                     ship.moveDown();
                     break;
                 case ' ':
-                    // debugger
                     ship.shootProjectile();
                     break;
                 default:
