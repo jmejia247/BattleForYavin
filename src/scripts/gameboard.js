@@ -10,16 +10,27 @@ window.addEventListener("load", () => {
   const gameover = document.getElementById('gameover');
 
  
-  const playButton = document.getElementById('switch');
+  const playButton = document.querySelector('#switch');
   function startGame() {
     if (splash.style.display === "block") {
       splash.style.display = "none";
       canvas.style.display = "block";
     }
   }
-  playButton.addEventListener('click', () => {
-    startGame();
-    togglePause();
+  function resetGame() {
+    if (splash.style.display === "none") {
+      splash.style.display = "block";
+      canvas.style.display = "none";
+    }
+  }
+  playButton.addEventListener('change', () => {
+    if (playButton.checked) {
+      isRunning = false;
+      startGame();
+      togglePause();
+    } else {
+      location.reload()
+    }
   })
 
   canvas.height = window.innerHeight;
@@ -83,7 +94,9 @@ window.addEventListener("load", () => {
       }
     });
 
-    requestAnimationFrame(gameLoop);
+    if ((canvas.style.display === "block")) {
+      requestAnimationFrame(gameLoop);
+    }
 
     if (score >= 15) {
       canvas.style.display = "none";
