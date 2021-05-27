@@ -2,7 +2,7 @@
 
 ## Overview
 
-conquest is a spin on the classic game of gradius, but with a starwars spin. You are all that is left in the galaxy, help Luke Skywalker destroy the deathstar!!
+Battle for Yavin is a spin on the classic game of gradius, but with a starwars spin. You are all that is left in the galaxy, help Luke Skywalker destroy the deathstar!!
 
 ## MVPs
 
